@@ -31,7 +31,12 @@ var quotes = [
     quote: "I just dropped some new merch and it's selling like a god church",
     source: "Jake Pual",
     rapper: "jakePual"
-  }
+  },
+	{
+		quote: "我觉得还可以",
+		source: "Mc Hotdog",
+		rapper: "hotdog"
+	}
 
 ];
 

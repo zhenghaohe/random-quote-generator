@@ -110,6 +110,12 @@ body {
   -webkit-animation: slide 25s linear infinite;
 }
 
+.hotdog {
+  background-image: url("../img/hotdog.jpg");
+  background-size: cover;
+  -webkit-animation: slide 25s linear infinite;
+}
+
 @-webkit-keyframes slide {
     from { background-position: 0 0; }
     to { background-position: -800px 0; }
