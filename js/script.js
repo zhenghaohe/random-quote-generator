@@ -23,7 +23,7 @@ var quotes = [
     rapper: "bigShaq"
   },
   {
-    quote: "I'm sing like a pringle",
+    quote: "I'm single like a pringle",
     source: "21 Savage",
     rapper: "Savage",
   },
