@@ -2,61 +2,25 @@ body {
   background-image:url('../img/wallpaper.gif');
   color: white;
   font-family: 'Playfair Display', serif;
-  -webkit-animation: slide 5s linear infinite;
-
+  -webkit-animation: slide 15s linear infinite;
 }
+
 #quote-box {
   position: absolute;
   top: 20%;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  line-height: .5;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  line-height: 2.3em;
+  text-align: center;
 }
 
-.quote {
-  font-size: 4rem;
-  font-weight: 400;
-  line-height: 1.1;
-  position: relative;
-  margin: 0;
-  }
-.quote:before, .quote:after {
-  font-size: 6rem;
-  line-height: 2.5rem;
-  position: absolute;
+#quotee {
+  font-size: 0.95em;
 }
-.quote:before {
-  content: "“";
-  top: .25em;
-  left: -.5em;
-}
-.quote:after {
-  content: "”";
-  bottom: -.1em;
-  margin-left: .1em;
-  position: absolute;
-}
-.source {
-  font-size: 1.25rem;;
-  letter-spacing: 0.05em;
-  line-height: 1.1;
-  text-align: right;
-  margin-right: 4em;
-}
-.source:before {
-  content: "—";
-}
-.citation {
-  font-style: italic;
-}
-.citation:before {
-  content: ", ";
-  font-style: normal;
-}
-.year:before {
-  content: ", ";
-  font-style: normal;
+
+#quote {
+  font-size: 1.25em;
 }
 
 #loadQuote {
@@ -80,55 +44,27 @@ body {
   outline: none;
 }
 
-.migos {
-  background-image: url("../img/Migos.jpg");
-  background-size: cover;
-  -webkit-animation: slide 25s linear infinite;
-}
-
-.lilPump {
-  background-image: url("../img/pump.jpg");
-  background-size: cover;
-  -webkit-animation: slide 25s linear infinite;
-}
-
-.bigShaq {
-  background-image: url("../img/bigshaq.jpg");
-  background-size: cover;
-  -webkit-animation: slide 25s linear infinite;
-}
-
-.Savage {
-  background-image: url("../img/21savage.jpg");
-  background-size: cover;
-  -webkit-animation: slide 25s linear infinite;
-}
-
-.jakePual {
-  background-image: url("../img/jake-paul.jpg");
-  background-size: cover;
-  -webkit-animation: slide 25s linear infinite;
-}
-
-.hotdog {
-  background-image: url("../img/hotdog.jpg");
-  background-size: cover;
-  -webkit-animation: slide 25s linear infinite;
-}
 
 @-webkit-keyframes slide {
-    from { background-position: 0 0; }
-    to { background-position: -800px 0; }
+    from { background-position: left 0; }
+    to { background-position: left -1790px; }
 }
 
-@media (max-width: 420px) {
-  .quote {
-    font-size: 2.5rem;
+@media (min-width: 769px) {
+  /* custom quote box for large screen */
+  #quoteBox {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    line-height: 3em;
+    text-align: center;
   }
-  .quote:before, .quote:after {
-    font-size: 3rem;
+  #quotee {
+    font-size: 2em;
   }
-  .source {
-    font-size: 1rem;
+  #quote {
+    font-size: 2.5em;
   }
 }

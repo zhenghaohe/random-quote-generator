@@ -1,49 +1,42 @@
-// event listener to respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
 var quote;
-var message;
 var viewedQuotes = [];
-var last ;
-
 var quotes = [
-	{
-		quote: 'Raindrops, drop tops',
-		source: "Migos",
-    rapper: "migos"
-	},
-	{
-		quote: "Gucci Gang Gucci Gang Gucci Gang",
-		source: "Lil Pump",
-    rapper: "lilPump"
-
-	},
-  {
-    quote: "Man's not hot.",
-    source: "Big Shaq",
-    rapper: "bigShaq"
-  },
-  {
-    quote: "I'm single like a pringle",
-    source: "21 Savage",
-    rapper: "Savage",
-  },
-  {
-    quote: "I just dropped some new merch and it's selling like a god church",
-    source: "Jake Pual",
-    rapper: "jakePual"
-  },
-	{
-		quote: "我觉得还可以",
-		source: "Mc Hotdog",
-		rapper: "hotdog"
-	}
-
+		{
+				quoteText: "Believe you can and you're halfway there.",
+				quoteAuthor: "Theodore Roosevelt"
+		},
+		{
+				quoteText: "Do or do not, there is no try.",
+				quoteAuthor: "Yoda"
+		},
+		{
+				quoteText: "If things seem under control, you’re just not going fast enough.",
+				quoteAuthor: "Mario Andretti"
+		},
+		{
+				quoteText: "I do not fear computers. I fear the lack of them",
+				quoteAuthor: "Isaac Asimov"
+		},
+		{
+				quoteText: "I'll be back.",
+				quoteAuthor: "Arnold Schwarznegger"
+		},
+		{
+				quoteText: "I never said most of the things I said.",
+				quoteAuthor: "Yogi Berra"
+		},
+		{
+				quoteText: "All you need is love",
+				quoteAuthor: "John Lennon"
+		},
+		{
+				quoteText: "If I had nine hours to chop down a tree, I’d spend the first six sharpening my ax.",
+				quoteAuthor: "Abraham Lincoln"
+		}
 ];
 
 
-
-  var getRandomQuote = function() {
-    last = viewedQuotes[viewedQuotes.length-1];
+  var localQuote = function() {
     var random = Math.floor(Math.random() * (quotes.length));
     quote = quotes.splice(random,1)[0];
     if (quotes.length == 0) {
@@ -51,32 +44,55 @@ var quotes = [
       viewedQuotes = [];
     }
     viewedQuotes.push(quote);
-    return [quote,last];
+    return quote;
   };
 
+function generateQuote() {
+    var APIendpoint = 'http://api.forismatic.com/api/1.0/?jsonp=?';
+    var URLqueryOptions = {
+        lang: 'en',
+        method: 'getQuote',
+        format: 'jsonp'
+    };
+    var successCallback = function (data, status) {
+        console.log('The status is ' + status);
+        renderQuote(data);
+    };
+    var failCallback = function (data, status, error) {
+        console.log("Looks like an error");
+        console.log(data.status + "  " + error);
+        renderQuote(localQuote());
+    };
 
-function printQuote() {
-  arr = getRandomQuote();
-  quote = arr[0];
-  last = arr[1];
-  message = '<p class="quote">' + quote.quote + '</p>' + '<p class="source">'+ quote.source;
-  document.getElementById('quote-box').innerHTML = message;
-  var body = $('body');
-
-  $('body').addClass(quote.rapper);
-  $('body').removeClass(last.rapper);
-
-
-
+    $.ajax({
+        url: APIendpoint,
+        data: URLqueryOptions,
+        dataType: 'json',
+        success: successCallback,
+        error: failCallback,
+        timeout: 1500
+    });
 }
 
-function resetAnimation(jqNode) {
-   var clone = jqNode.clone();
-   jqNode.after( clone );
-   jqNode.remove();
-   jqNode[0] = clone[0];
-   return jqNode[0]
+function renderQuote(quote) {
+    var a = $.Deferred();
+    var b = $.Deferred();
+
+    // error checking
+    if (quote.quoteText === undefined) { quote.quoteText = ''; }
+    if (quote.quoteAuthor === undefined) { quote.quoteAuthor = ''; }
+
+    // display new quote
+    $('#quote').fadeOut(function(){
+        $(this).text(quote.quoteText).fadeIn(function() {a.resolve();});
+    });
+    $('#quotee').fadeOut(function(){
+        $(this).text(quote.quoteAuthor).fadeIn(function() {b.resolve();});
+    });
 }
 
-
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+$(document).ready(function() {
+    renderQuote(localQuote());
+    $('#loadQuote').click(generateQuote);
+});
+// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
