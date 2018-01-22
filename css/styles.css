@@ -13,6 +13,7 @@ body {
   width: 90%;
   line-height: 2.3em;
   text-align: center;
+  top: 50px;
 }
 
 #quotee {
@@ -39,12 +40,14 @@ body {
 }
 #loadQuote:active {
   background-color: rgba(255,255,255,.25);
-  transition-property: background-color;
-  transition-duration: 7ms;
+  -webkit-transition: background-color 10ms linear;
+     -ms-transition: background-color 10ms linear;
+     transition: background-color 10ms linear;
 }
 
 #loadQuote:focus {
   outline: none;
+
 }
 
 
