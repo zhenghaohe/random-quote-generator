@@ -40,9 +40,9 @@ body {
 }
 #loadQuote:active {
   background-color: rgba(255,255,255,.25);
-  -webkit-transition: background-color 1000ms linear;
-     -ms-transition: background-color 1000ms linear;
-     transition: background-color 1000ms linear;
+  -webkit-transition: background-color 10ms linear;
+     -ms-transition: background-color 10ms linear;
+     transition: background-color 10ms linear;
 }
 
 #loadQuote:focus {
