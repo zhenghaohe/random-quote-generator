@@ -48,7 +48,7 @@ var quotes = [
   };
 
 function generateQuote() {
-    var APIendpoint = 'http://api.forismatic.com/api/1.0/?jsonp=?';
+    var APIendpoint = 'https://api.forismatic.com/api/1.0/?jsonp=?';
     var URLqueryOptions = {
         lang: 'en',
         method: 'getQuote',
