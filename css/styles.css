@@ -1,7 +1,7 @@
 body {
   background-image:url('../img/wallpaper.gif');
   color: white;
-  font-family: 'Playfair Display', serif;
+  font-family: 'VT323', monospace;
   -webkit-animation: slide 15s linear infinite;
 }
 
@@ -16,11 +16,11 @@ body {
 }
 
 #quotee {
-  font-size: 0.95em;
+  font-size: 1.25em;
 }
 
 #quote {
-  font-size: 1.25em;
+  font-size: 1.6em;
 }
 
 #loadQuote {
