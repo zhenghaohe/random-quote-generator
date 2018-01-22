@@ -29,17 +29,19 @@ body {
   display: inline-block;
   left: 50%;
   margin-left: -6em;
-  bottom: 150px;
+  bottom: 50px;
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
   background-color: black;
-  padding: 15px 0;
+  padding: 10px 0;
   transition: .5s ;
 }
-#loadQuote:hover {
+#loadQuote:active {
   background-color: rgba(255,255,255,.25);
+  transition-duration: 0.001s;
 }
+
 #loadQuote:focus {
   outline: none;
 }
@@ -66,5 +68,13 @@ body {
   }
   #quote {
     font-size: 2.5em;
+  }
+  #loadQuote {
+    bottom: 100px;
+    font-size: 1.8em;
+
+  }
+  #loadQuote:hover {
+    background-color: rgba(255,255,255,.25);
   }
 }
