@@ -89,10 +89,15 @@ function renderQuote(quote) {
     $('#quotee').fadeOut(function(){
         $(this).text(quote.quoteAuthor).fadeIn(function() {b.resolve();});
     });
+		$('#loadQuote').removeClass('active');
+
 }
 
 $(document).ready(function() {
     renderQuote(localQuote());
-    $('#loadQuote').click(generateQuote);
+    $('#loadQuote').on('click tap',function(){
+			$(this).addClass('active');
+   		generateQuote();
+		});
 });
 // document.getElementById('loadQuote').addEventListener("click", printQuote, false);
