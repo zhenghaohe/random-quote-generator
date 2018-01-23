@@ -1,6 +1,5 @@
 body {
   background-image:url('../img/wallpaper.gif');
-  background-size: cover;
   color: white;
   font-family: 'VT323', monospace;
   -webkit-animation: slide 15s linear infinite;
@@ -83,6 +82,4 @@ body {
     background-color: rgba(255,255,255,.25);
   }
 
-  body {
-    background-size: auto;}
 }
