@@ -100,4 +100,7 @@ $(document).ready(function() {
    		generateQuote();
 		});
 });
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+$(document).ready(function() {
+    $('body').css('background-size', $(window).width()/3 + 'px ');
+});
