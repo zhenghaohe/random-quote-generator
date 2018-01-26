@@ -100,7 +100,3 @@ $(document).ready(function() {
    		generateQuote();
 		});
 });
-
-$(document).ready(function() {
-    $('body').css('background-size', $(window).width()/3 + 'px ');
-});
